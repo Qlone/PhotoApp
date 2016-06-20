@@ -6,6 +6,7 @@ package com.example.weina.phontoapp.Modle;
 public class FileModel {
     private  boolean isFile;
     private String fileName;
+    private double fileSize;
 
     public void setisFile(boolean isFile){
         this.isFile = isFile;

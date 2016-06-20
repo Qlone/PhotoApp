@@ -20,7 +20,7 @@ public class FileModelAdapter extends RecyclerView.Adapter<FileModelAdapter.MyVi
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         MyViewHolder holder = new MyViewHolder(LayoutInflater.from(
-                parent.getContext()).inflate(R.layout.item_file_list,parent,false));
+                parent.getContext()).inflate(R.layout.test_swipelayout,parent,false));
         return holder;
     }
 

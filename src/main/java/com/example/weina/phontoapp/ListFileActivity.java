@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 
+import com.example.weina.phontoapp.InternetServer.InternetPrenter;
 import com.example.weina.phontoapp.Modle.FileModel;
 import com.example.weina.phontoapp.Modle.FileModelAdapter;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
@@ -18,11 +19,17 @@ public class ListFileActivity extends AppCompatActivity {
     private XRecyclerView mRecyclerView;
     private FileModelAdapter mAdaperter;
     private List<FileModel> mDatas;
+    private InternetPrenter mprenter;
     @Override
     protected  void onCreate(Bundle savedInstanceState){
      super.onCreate(savedInstanceState);
         setContentView(R.layout.list_file_layout);
+
         initView();
+       // Intent bindIntent = new Intent(this, InternetServer.class);
+      //  bindService(bindIntent, connection, BIND_AUTO_CREATE);
+        mprenter = InternetPrenter.getmInstances();
+        mprenter.getiBinderAndBind(this);
     }
     public void initView(){
         mRecyclerView = (XRecyclerView) findViewById(R.id.list_file_recyclerview);
@@ -35,6 +42,7 @@ public class ListFileActivity extends AppCompatActivity {
             @Override
             public void onRefresh() {
                 //refresh data here
+               mprenter.senFilePath("w");
                 mRecyclerView.refreshComplete();
             }
 
@@ -44,5 +52,10 @@ public class ListFileActivity extends AppCompatActivity {
                 mRecyclerView.loadMoreComplete();
             }
         });
+    }
+    @Override
+    protected void onDestroy(){
+        super.onDestroy();
+        mprenter.UnBindService(this);
     }
 }

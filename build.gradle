@@ -25,4 +25,7 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.4.0'
     compile 'com.android.support:design:23.4.0'
     compile 'com.jcodecraeer:xrecyclerview:1.2.6'
+   // compile "com.daimajia.swipelayout:library:1.2.0@aar"
+    //compile 'com.android.support:support-v4:20.+'
+    compile "com.daimajia.swipelayout:library:1.1.7@aar"
 }
