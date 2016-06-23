@@ -1,5 +1,6 @@
 <com.daimajia.swipe.SwipeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-android:layout_width="match_parent" android:layout_height="80dp">
+android:layout_width="match_parent" android:layout_height="80dp"
+    android:id="@+id/swipe">
 <!-- Bottom View Start-->
 <LinearLayout
     android:background="#66ddff00"
@@ -9,6 +10,26 @@ android:layout_width="match_parent" android:layout_height="80dp">
     android:layout_height="match_parent"
     android:orientation="horizontal">
     <!--What you want to show-->
+    <Button
+        android:id="@+id/id_swipebutton_downlow"
+        android:background="#FF0000"
+        android:text="下载"
+        android:textSize="15sp"
+        android:textColor="#FAFAFA"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_weight="1"
+        android:layout_height="match_parent" />
+    <Button
+        android:layout_weight="1"
+        android:text="链接"
+        android:background="#EEB422"
+        android:textSize="15sp"
+        android:textColor="#FAFAFA"
+        android:gravity="center"
+        android:id="@+id/id_swipebutton_relate"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" />
 </LinearLayout>
 <!-- Bottom View End-->
 
@@ -16,9 +37,42 @@ android:layout_width="match_parent" android:layout_height="80dp">
 <LinearLayout
     android:padding="10dp"
     android:background="#ffffff"
+    android:id="@+id/up_wrapper"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
     <!--What you want to show in SurfaceView-->
+    <ImageView
+        android:id="@+id/id_image_fileSyle"
+        android:background="@drawable/file"
+        android:scaleType="centerCrop"
+        android:layout_width="60dp"
+        android:layout_height="60dp" />
+    <TableLayout
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:padding="5dp">
+        <TextView
+            android:id="@+id/id_text_filename"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:text="文件名字"
+            android:textSize="20sp"
+        />
+        <TextView
+            android:id="@+id/id_text_filesize"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:text="文件大小"
+            android:textSize="15sp"
+            />
+    </TableLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="right|bottom"
+        android:text="未下载"/>
 </LinearLayout>
 <!-- Surface View End -->
 </com.daimajia.swipe.SwipeLayout>

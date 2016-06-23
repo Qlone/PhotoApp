@@ -5,7 +5,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.IBinder;
-import android.util.Log;
+
+import com.example.weina.phontoapp.Modle.FileModelAdapter;
+import com.jcodecraeer.xrecyclerview.XRecyclerView;
 
 /**
  * Created by weina on 2016/6/16.
@@ -18,7 +20,6 @@ public class InternetPrenter {
         public void onServiceConnected(ComponentName name, IBinder service) {
             //绑定后执行的函数
             serverBinder = (InternetServer.ServerBinder) service;
-            Log.d("hello","here!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         }
 
         @Override
@@ -45,7 +46,10 @@ public class InternetPrenter {
     public void UnBindService(Context context){
         context.unbindService(connection);
     }
-    public void senFilePath(String path){
-        serverBinder.sendFilePath(path);
+    public void senFilePath(String path, FileModelAdapter modelAdapter, XRecyclerView xRecyclerView){
+        serverBinder.sendFilePath(path,modelAdapter,xRecyclerView);
+    }
+    public String getServrIp(){
+        return serverBinder.getServerIp();
     }
 }
